@@ -187,7 +187,18 @@ generateBoard();
 const debugButton = document.getElementById('debugButton');
 debugButton.addEventListener('click', () => {
     debugMode = !debugMode; // Toggle debug mode
-    generateBoard(); // Regenerate the board to reflect debug mode
+    for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
+            let cell = document.getElementById(`${i}-${j}`);
+            if (board[i][j].isMine) {
+                if (debugMode) {
+                    cell.classList.add('mine');
+                } else {
+                    cell.classList.remove('mine');
+                }
+            }
+        }
+    }
 });
 
 // Modal functions
