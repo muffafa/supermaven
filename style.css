@@ -7,8 +7,18 @@ body {
     display: flex;
     flex-direction: column; /* Align items vertically */
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Ensure at least full viewport height */
     margin: 0;
+    justify-content: space-between; /* Distribute space between header and footer */
+}
+
+#game {
+    flex-grow: 1; /* Allow game area to expand to fill available space */
+    display: grid;
+    grid-template-columns: repeat(9, 25px); /* Adjust for desired board size */
+    grid-template-rows: repeat(9, 25px);
+    border-collapse: collapse;
+    align-self: center; /* Center the game board horizontally */
 }
 
 header {
