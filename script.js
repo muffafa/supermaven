@@ -3,6 +3,7 @@ const gridSize = 9; // Adjust for desired board size
 const numMines = 10; // Adjust for desired number of mines
 let board = [];
 let gameStarted = false;
+let gameEnded = false; // Add a variable to track if the game has ended
 
 // Function to generate the game board
 function generateBoard() {
@@ -55,13 +56,13 @@ function generateBoard() {
 
 // Function to handle cell clicks
 function handleClick(cell) {
-    if (!gameStarted) {
-        gameStarted = true;
-    }
-
-    if (!gameStarted) { // Check if the game has ended
+    if (gameEnded) { // Check if the game has ended
         showModal('The game has ended. Please restart to play again.'); // Show modal again
         return; // Prevent further interaction
+    }
+
+    if (!gameStarted) {
+        gameStarted = true;
     }
 
     let [x, y] = cell.id.split('-').map(Number);
@@ -141,6 +142,8 @@ function countAdjacentMines(x, y) {
 }
 
 function gameOver() {
+    gameEnded = true; // Set gameEnded to true when the game is over
+
     for (let i = 0; i < gridSize; i++) {
         for (let j = 0; j < gridSize; j++) {
             if (board[i][j].isMine) {
@@ -165,6 +168,7 @@ function checkWinCondition() {
     }
 
     if (revealedCount === gridSize * gridSize - numMines) {
+        gameEnded = true; // Set gameEnded to true when the game is won
         showModal('You Win!');
     }
 }
@@ -185,5 +189,7 @@ function closeModal() {
 
 function restartGame() {
     closeModal();
+    gameStarted = false; // Reset gameStarted
+    gameEnded = false; // Reset gameEnded
     generateBoard();
 }
