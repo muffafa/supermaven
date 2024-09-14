@@ -59,6 +59,11 @@ function handleClick(cell) {
         gameStarted = true;
     }
 
+    if (!gameStarted) { // Check if the game has ended
+        showModal('The game has ended. Please restart to play again.'); // Show modal again
+        return; // Prevent further interaction
+    }
+
     let [x, y] = cell.id.split('-').map(Number);
 
     if (board[x][y].isRevealed || board[x][y].isFlagged) {
