@@ -1,10 +1,6 @@
 // Game variables
 const gridSize = 9; // Adjust for desired board size
 const numMines = 10; // Adjust for desired number of mines
-
-// Game variables
-const gridSize = 9; // Adjust for desired board size
-const numMines = 10; // Adjust for desired number of mines
 let board = [];
 let gameStarted = false;
 
