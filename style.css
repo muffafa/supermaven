@@ -12,13 +12,18 @@ body {
     justify-content: space-between; /* Distribute space between header and footer */
 }
 
-#game {
+#game-container {
     flex-grow: 1; /* Allow game area to expand to fill available space */
+    display: flex;
+    justify-content: center; /* Center the table horizontally */
+    align-items: center; /* Center the table vertically */
+}
+
+#game {
     display: grid;
     grid-template-columns: repeat(9, 25px); /* Adjust for desired board size */
     grid-template-rows: repeat(9, 25px);
     border-collapse: collapse;
-    align-self: center; /* Center the game board horizontally */
 }
 
 header {
