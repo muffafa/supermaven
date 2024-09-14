@@ -13,7 +13,7 @@ body {
 }
 
 #game-container {
-    height: calc(100vh - 120px); /* 120px is an estimated combined height of header and footer */
+    height: calc(100vh - 72px); /* Adjust the subtracted height based on your header and footer heights */
     display: flex;
     justify-content: center; /* Center the table horizontally */
     align-items: center; /* Center the table vertically */
@@ -81,8 +81,8 @@ footer {
     padding: 10px;
     background-color: #f0f0f0;
     width: 100%;
-    position: fixed;
-    bottom: 0;
+    /* position: fixed; Remove fixed positioning */
+    /* bottom: 0; */
 }
 
 /* Modal styles */
