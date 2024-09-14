@@ -30,5 +30,6 @@
 
 .flag {
     /* Style for flagged cells */
-    background-color: yellow;
+    background-image: url('flag.png'); /* Replace with your flag image path */
+    background-size: cover;
 }
