@@ -4,6 +4,7 @@ const numMines = 10; // Adjust for desired number of mines
 let board = [];
 let gameStarted = false;
 let gameEnded = false; // Add a variable to track if the game has ended
+let debugMode = false; // Add a variable to track debug mode
 
 // Function to generate the game board
 function generateBoard() {
@@ -28,6 +29,12 @@ function generateBoard() {
             cell.id = `${i}-${j}`;
             cell.addEventListener('click', () => handleClick(cell));
             cell.addEventListener('contextmenu', (e) => handleRightClick(e, cell));
+
+            // Conditionally add 'mine' class if in debug mode and cell is a mine
+            if (debugMode && board[i][j].isMine) {
+                cell.classList.add('mine');
+            }
+
             gameBoard.appendChild(cell);
         }
         board.push(row);
@@ -175,6 +182,13 @@ function checkWinCondition() {
 
 // Initialize the game
 generateBoard();
+
+// Add event listener to debug button
+const debugButton = document.getElementById('debugButton');
+debugButton.addEventListener('click', () => {
+    debugMode = !debugMode; // Toggle debug mode
+    generateBoard(); // Regenerate the board to reflect debug mode
+});
 
 // Modal functions
 function showModal(message) {
