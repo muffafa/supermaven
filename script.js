@@ -216,5 +216,6 @@ function restartGame() {
     closeModal();
     gameStarted = false; // Reset gameStarted
     gameEnded = false; // Reset gameEnded
+    debugMode = false; // Reset debugMode
     generateBoard();
 }
