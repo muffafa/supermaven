@@ -8,6 +8,14 @@
     <h1>Minesweeper</h1>
     <div id="game"></div>
 
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <p id="modalMessage"></p>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

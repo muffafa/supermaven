@@ -146,11 +146,7 @@ function gameOver() {
         }
     }
 
-    if (confirm('Game Over! Do you want to restart?')) {
-        generateBoard();
-    } else {
-        gameStarted = false;
-    }
+    showModal('Game Over!');
 }
 
 function checkWinCondition() {
@@ -164,13 +160,25 @@ function checkWinCondition() {
     }
 
     if (revealedCount === gridSize * gridSize - numMines) {
-        if (confirm('You Win! Do you want to restart?')) {
-            generateBoard();
-        } else {
-            gameStarted = false;
-        }
+        showModal('You Win!');
     }
 }
 
 // Initialize the game
 generateBoard();
+
+// Modal functions
+function showModal(message) {
+    document.getElementById('modalMessage').textContent = message;
+    document.getElementById('gameModal').style.display = 'block';
+    gameStarted = false;
+}
+
+function closeModal() {
+    document.getElementById('gameModal').style.display = 'none';
+}
+
+function restartGame() {
+    closeModal();
+    generateBoard();
+}
