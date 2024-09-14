@@ -21,6 +21,10 @@ header {
     text-align: center; /* Center the heading text */
 }
 
+.heading-container {
+    margin: 0 auto; /* Center the heading within its container */
+}
+
 #game {
     display: grid;
     grid-template-columns: repeat(9, 25px); /* Adjust for desired board size */
