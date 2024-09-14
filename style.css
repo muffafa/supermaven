@@ -10,11 +10,10 @@ body {
     min-height: 100vh; /* Ensure at least full viewport height */
     margin: 0;
     justify-content: space-between; /* Distribute space between header and footer */
-    padding-bottom: 50px; /* Adjust this value to match the footer height */
 }
 
 #game-container {
-    flex-grow: 1; /* Allow game area to expand to fill available space */
+    height: calc(100vh - 120px); /* 120px is an estimated combined height of header and footer */
     display: flex;
     justify-content: center; /* Center the table horizontally */
     align-items: center; /* Center the table vertically */
