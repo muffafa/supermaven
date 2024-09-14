@@ -146,8 +146,11 @@ function gameOver() {
         }
     }
 
-    alert('Game Over!');
-    gameStarted = false;
+    if (confirm('Game Over! Do you want to restart?')) {
+        generateBoard();
+    } else {
+        gameStarted = false;
+    }
 }
 
 function checkWinCondition() {
@@ -161,8 +164,11 @@ function checkWinCondition() {
     }
 
     if (revealedCount === gridSize * gridSize - numMines) {
-        alert('You Win!');
-        gameStarted = false;
+        if (confirm('You Win! Do you want to restart?')) {
+            generateBoard();
+        } else {
+            gameStarted = false;
+        }
     }
 }
 
