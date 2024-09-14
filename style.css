@@ -1,0 +1,34 @@
+#game {
+    display: grid;
+    grid-template-columns: repeat(9, 25px); /* Adjust for desired board size */
+    grid-template-rows: repeat(9, 25px);
+    border-collapse: collapse;
+}
+
+.cell {
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.hidden {
+    /* Style for hidden cells */
+}
+
+.revealed {
+    /* Style for revealed cells */
+    background-color: white;
+}
+
+.mine {
+    /* Style for mine cells */
+    background-color: red;
+}
+
+.flag {
+    /* Style for flagged cells */
+    background-color: yellow;
+}
